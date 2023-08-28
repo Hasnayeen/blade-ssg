@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Hasnayeen\BladeSsg;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -8,19 +8,19 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
+use Hasnayeen\BladeSsg\Commands\BladeSsgCommand;
+use Hasnayeen\BladeSsg\Testing\TestsBladeSsg;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class BladeSsgServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'blade-ssg';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'blade-ssg';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +36,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('hasnayeen/blade-ssg');
             });
 
         $configFileName = $package->shortName();
@@ -55,6 +55,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
+        }
+
+        if (file_exists($package->basePath('/../routes'))) {
+            $package->hasRoutes($this->getRoutes());
         }
     }
 
@@ -82,18 +86,18 @@ class SkeletonServiceProvider extends PackageServiceProvider
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
+                    $file->getRealPath() => base_path("stubs/blade-ssg/{$file->getFilename()}"),
+                ], 'blade-ssg-stubs');
             }
         }
 
         // Testing
-        Testable::mixin(new TestsSkeleton());
+        Testable::mixin(new TestsBladeSsg());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'hasnayeen/blade-ssg';
     }
 
     /**
@@ -102,9 +106,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('blade-ssg', __DIR__ . '/../resources/dist/components/blade-ssg.js'),
+            Css::make('styles', __DIR__ . '/../resources/dist/blade-ssg.css'),
+            // Js::make('blade-ssg-scripts', __DIR__ . '/../resources/dist/blade-ssg.js'),
         ];
     }
 
@@ -114,7 +118,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            BladeSsgCommand::class,
         ];
     }
 
@@ -131,7 +135,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
      */
     protected function getRoutes(): array
     {
-        return [];
+        return [
+            'web',
+        ];
     }
 
     /**
@@ -148,7 +154,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            'create_blade_ssg_tables',
         ];
     }
 }

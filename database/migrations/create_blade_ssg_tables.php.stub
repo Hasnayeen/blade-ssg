@@ -1,0 +1,59 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug')->unique();
+            $table->string('name');
+            $table->timestamps();
+
+            $table->index('created_at');
+        });
+
+        Schema::create('posts_tags', function (Blueprint $table) {
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('tag_id');
+
+            $table->unique(['post_id', 'tag_id']);
+        });
+
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug')->unique();
+            $table->string('title');
+            $table->text('excerpt')->nullable();
+            $table->text('body');
+            $table->string('template');
+            $table->timestamp('publish_at')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('pages', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('group')->nullable();
+            $table->text('body');
+            $table->string('template');
+            $table->integer('order')->default(0);
+            $table->timestamp('published_at')->nullable();
+            $table->json('meta')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('tags');
+        Schema::dropIfExists('posts_tags');
+        Schema::dropIfExists('posts');
+        Schema::dropIfExists('pages');
+    }
+};
