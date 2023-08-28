@@ -2,9 +2,8 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\PostResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
 
 class CreatePost extends CreateRecord
 {

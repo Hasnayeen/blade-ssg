@@ -2,11 +2,10 @@
 
 namespace Hasnayeen\BladeSsg\Http\Controllers;
 
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Hasnayeen\Mdb\Facades\Mdb;
 use Hasnayeen\BladeSsg\Models\Page;
 use Hasnayeen\BladeSsg\Models\Post;
+use Hasnayeen\Mdb\Facades\Mdb;
+use Illuminate\Http\Request;
 
 class PageController
 {
@@ -17,9 +16,9 @@ class PageController
     {
         $pages = Page::all();
         $page = $pages->where('slug', $slug)->first();
-        if (!$page) {
+        if (! $page) {
             $post = Post::where('slug', $slug)->first();
-            abort_if(!$post, 404);
+            abort_if(! $post, 404);
             $content = Mdb::render($post->body);
         }
 

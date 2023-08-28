@@ -3,9 +3,9 @@
 namespace Hasnayeen\BladeSsg\Http\Middleware;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Filament\Facades\Filament;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Request;
 
 class Authenticate extends Middleware
 {

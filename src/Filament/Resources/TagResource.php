@@ -2,16 +2,13 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources;
 
-use Hasnayeen\BladeSsg\Filament\Resources\TagResource\Pages;
-use Hasnayeen\BladeSsg\Filament\Resources\TagResource\RelationManagers;
-use Hasnayeen\BladeSsg\Models\Tag;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Hasnayeen\BladeSsg\Filament\Resources\TagResource\Pages;
+use Hasnayeen\BladeSsg\Models\Tag;
 
 class TagResource extends Resource
 {
@@ -70,14 +67,14 @@ class TagResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -86,5 +83,5 @@ class TagResource extends Resource
             'view' => Pages\ViewTag::route('/{record}'),
             'edit' => Pages\EditTag::route('/{record}/edit'),
         ];
-    }    
+    }
 }

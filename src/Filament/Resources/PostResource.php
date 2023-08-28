@@ -2,16 +2,12 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources;
 
-use Hasnayeen\BladeSsg\Filament\Resources\PostResource\Pages;
-use Hasnayeen\BladeSsg\Filament\Resources\PostResource\RelationManagers;
-use Hasnayeen\BladeSsg\Models\Post;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Hasnayeen\BladeSsg\Filament\Resources\PostResource\Pages;
+use Hasnayeen\BladeSsg\Models\Post;
 
 class PostResource extends Resource
 {
@@ -49,14 +45,14 @@ class PostResource extends Resource
                 Tables\Actions\CreateAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -65,5 +61,5 @@ class PostResource extends Resource
             'view' => Pages\ViewPost::route('/{record}'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
-    }    
+    }
 }

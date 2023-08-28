@@ -2,19 +2,19 @@
 
 namespace Hasnayeen\BladeSsg;
 
-use Filament\Panel;
-use Filament\PanelProvider;
-use Filament\Pages\Dashboard;
-use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Cookie\Middleware\EncryptCookies;
-use Hasnayeen\BladeSsg\Http\Middleware\Authenticate;
-use Illuminate\Routing\Middleware\SubstituteBindings;
-use Illuminate\Session\Middleware\AuthenticateSession;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Filament\Pages\Dashboard;
+use Filament\Panel;
+use Filament\PanelProvider;
+use Hasnayeen\BladeSsg\Http\Middleware\Authenticate;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class CmsPanelProvider extends PanelProvider
 {
@@ -36,7 +36,7 @@ class CmsPanelProvider extends PanelProvider
                     '800' => '#385052',
                     '900' => '#324447',
                     '950' => '#1e2c2e',
-                ]
+                ],
             ])
             ->discoverResources(in: __DIR__ . '/Filament/Resources', for: 'Hasnayeen\\BladeSsg\\Filament\\Resources')
             ->discoverPages(in: __DIR__ . '/Filament/Pages', for: 'Hasnayeen\\BladeSsg\\Filament\\Pages')

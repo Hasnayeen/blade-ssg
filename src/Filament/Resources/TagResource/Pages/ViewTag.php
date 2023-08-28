@@ -2,9 +2,9 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\TagResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\TagResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
+use Hasnayeen\BladeSsg\Filament\Resources\TagResource;
 
 class ViewTag extends ViewRecord
 {

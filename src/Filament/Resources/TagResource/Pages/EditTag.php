@@ -2,9 +2,9 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\TagResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\TagResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Hasnayeen\BladeSsg\Filament\Resources\TagResource;
 
 class EditTag extends EditRecord
 {

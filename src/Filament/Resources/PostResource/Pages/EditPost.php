@@ -2,9 +2,9 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\PostResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
 
 class EditPost extends EditRecord
 {

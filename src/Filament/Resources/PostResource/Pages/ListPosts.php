@@ -2,9 +2,9 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\PostResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Hasnayeen\BladeSsg\Filament\Resources\PostResource;
 
 class ListPosts extends ListRecords
 {

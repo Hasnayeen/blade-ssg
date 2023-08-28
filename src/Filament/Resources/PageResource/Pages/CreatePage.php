@@ -2,9 +2,8 @@
 
 namespace Hasnayeen\BladeSsg\Filament\Resources\PageResource\Pages;
 
-use Hasnayeen\BladeSsg\Filament\Resources\PageResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Hasnayeen\BladeSsg\Filament\Resources\PageResource;
 
 class CreatePage extends CreateRecord
 {
