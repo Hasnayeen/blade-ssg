@@ -3,10 +3,8 @@
     'data' => [],
 ])
 
-@php
-    $view = config('blade-ssg.templates.'.$template.'.view');
-@endphp
-
-<{{ $view }} :content="$content" :data="$data['pages']">
-    {!! $content !!}
-</{{ $view }}>
+@if ($template === 'docs')
+    <x-blade-ssg::docs.layout :content="$content" :pages="$data['pages']">
+        {!! $content !!}
+    </x-blade-ssg::docs.layout>
+@endif

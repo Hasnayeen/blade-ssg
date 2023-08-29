@@ -25,7 +25,7 @@ class PageResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required(),
                 Forms\Components\TextInput::make('group'),
-                Forms\Components\MarkdownEditor::make('content')
+                Forms\Components\MarkdownEditor::make('body')
                     ->columnSpanFull(),
             ]);
     }

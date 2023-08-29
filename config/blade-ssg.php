@@ -47,14 +47,8 @@ return [
     'default_template' => 'docs',
 
     'templates' => [
-        'docs' => [
-            'name' => 'Documentation',
-            'view' => 'blade-ssg::templates.docs',
-        ],
-        'blog' => [
-            'name' => 'Blog',
-            'view' => 'blade-ssg::templates.blog',
-        ],
+        'docs' => 'Documentation',
+        'blog' => 'Blog',
     ],
 
 ];

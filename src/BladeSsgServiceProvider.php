@@ -55,6 +55,7 @@ class BladeSsgServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
+            $package->hasViewComponents(static::$viewNamespace, ...$this->getViewComponents());
         }
 
         if (file_exists($package->basePath('/../routes'))) {
@@ -108,7 +109,20 @@ class BladeSsgServiceProvider extends PackageServiceProvider
         return [
             // AlpineComponent::make('blade-ssg', __DIR__ . '/../resources/dist/components/blade-ssg.js'),
             Css::make('styles', __DIR__ . '/../resources/dist/blade-ssg.css'),
-            // Js::make('blade-ssg-scripts', __DIR__ . '/../resources/dist/blade-ssg.js'),
+            Js::make('scripts', __DIR__ . '/../resources/dist/blade-ssg.js'),
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function getViewComponents(): array
+    {
+        return [
+            'docs.layout' => 'blade-ssg::docs.layout',
+            'docs.left-sidebar' => 'blade-ssg::docs.left-sidebar',
+            'docs.navbar' => 'blade-ssg::docs.navbar',
+            'docs.right-sidebar' => 'blade-ssg::docs.right-sidebar',
         ];
     }
 
