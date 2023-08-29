@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="preload" as="style" href="{{ asset('css/hasnayeen/blade-ssg/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hasnayeen/blade-ssg/styles.css') }}">
     <script type="module" src="{{ asset('js/hasnayeen/blade-ssg/scripts.js') }}"></script>
 </head>
 
